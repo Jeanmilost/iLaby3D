@@ -1,21 +1,19 @@
 /*****************************************************************************
- * ==> IP_MusicPlayer -------------------------------------------------------*
+ * ==> IP_SoundPlayer -------------------------------------------------------*
  * ***************************************************************************
- * Description : Simple music player class                                   *
+ * Description : Class to play a simple sound                                *
  * Developper  : Jean-Milost Reymond                                         *
  *****************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import <AVFoundation/AVAudioPlayer.h>
+#import <AudioToolbox/AudioToolbox.h>
 #import "IP_PlayerProtocol.h"
 
-/**
-* Music player class
-*@author Jean-Milost Reymond
-*/
-@interface IP_MusicPlayer : NSObject <IP_PlayerProtocol>
+@interface IP_SoundPlayer : NSObject <IP_PlayerProtocol>
 {
-    AVAudioPlayer* m_pPlayer;
+    @private
+        SystemSoundID m_SoundID;
+        bool          m_IsPlaying;
 }
 
 /**
@@ -38,15 +36,16 @@
 - (bool)Load :(NSString*)pResourceName :(NSString*)pExtension;
 
 /**
-* Prepares music to be played
-*/
-- (void)PrepareToPlay;
-
-/**
 * Plays the music
 *@returns true on success, otherwise false
 */
-- (bool)Play;
+- (void)Play;
+
+/**
+* Check if blayback is already playing
+*@returns true if playback is already playing, otherwise false
+*/
+- (bool)IsPlaying;
 
 /**
 * Pauses the music
@@ -58,13 +57,7 @@
 * Stops the music
 *@returns true on success, otherwise false
 */
-- (bool)Stop;
-
-/**
-* Check if blayback is already playing
-*@returns true if playback is already playing, otherwise false
-*/
-- (bool)IsPlaying;
+- (void)Stop;
 
 /**
 * Changes the volume
@@ -78,5 +71,12 @@
 *@param value - whether or not hte music should be loop
 */
 - (void)Loop :(bool)value;
+
+/**
+* Called when sound playing is completed
+*@param soundID - sound identifier
+*@param pSender - sender that raises the event
+*/
+static void OnPlayCompleted(SystemSoundID soundID, void* pSender);
 
 @end

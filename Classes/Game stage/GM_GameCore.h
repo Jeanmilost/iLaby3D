@@ -9,6 +9,7 @@
 #import "IP_Delegate.h"
 #import "IP_Camera.h"
 #import "IP_MusicPlayer.h"
+#import "IP_ALSoundPlayer.h"
 #import "IP_UserControl.h"
 #import "IP_Walls.h"
 #import "IP_Button.h"
@@ -32,29 +33,29 @@
         };
 
     @private
-        IP_Camera*      m_pCamera;
-        IP_Walls*       m_pWalls;
-        IP_Button*      m_pMapButton;
-        IP_Button*      m_pPauseButton;
-        IP_Button*      m_pMenuButton;
-        IP_UserControl* m_pUserControl;
-        IP_MusicPlayer* m_pStep;
-        IP_MusicPlayer* m_pAmbientSound1;
-        IP_MusicPlayer* m_pAmbientSound2;
-        GLfloat         m_FogColor[4];
-        CFTimeInterval  m_LastTime;
-        CFTimeInterval  m_LastPlayedStep;
-        CFTimeInterval  m_BeginsTime;
-        CFTimeInterval  m_Time;
-        E_Plane         m_LastPlane;
-        float           m_Volume;
-        bool            m_DisplayMap;
-        bool            m_Pause;
-        bool            m_Play;
-        IP_Delegate*    m_pOnRunDelegate;
-        IP_Delegate*    m_pOnPauseDelegate;
-        IP_Delegate*    m_pOnQuitDelegate;
-        IP_Delegate*    m_pOnWinDelegate;
+        IP_Camera*        m_pCamera;
+        IP_Walls*         m_pWalls;
+        IP_Button*        m_pMapButton;
+        IP_Button*        m_pPauseButton;
+        IP_Button*        m_pMenuButton;
+        IP_UserControl*   m_pUserControl;
+        IP_MusicPlayer*   m_pAmbientSound1;
+        IP_MusicPlayer*   m_pAmbientSound2;
+        IP_ALSoundPlayer* m_pStep;
+        GLfloat           m_FogColor[4];
+        CFTimeInterval    m_LastTime;
+        CFTimeInterval    m_LastPlayedStep;
+        CFTimeInterval    m_BeginsTime;
+        CFTimeInterval    m_Time;
+        E_Plane           m_LastPlane;
+        float             m_Volume;
+        bool              m_DisplayMap;
+        bool              m_Pause;
+        bool              m_Play;
+        IP_Delegate*      m_pOnRunDelegate;
+        IP_Delegate*      m_pOnPauseDelegate;
+        IP_Delegate*      m_pOnQuitDelegate;
+        IP_Delegate*      m_pOnWinDelegate;
 }
 
 @property (readonly, nonatomic, assign) bool m_Play;

@@ -1,21 +1,23 @@
 /*****************************************************************************
- * ==> IP_MusicPlayer -------------------------------------------------------*
+ * ==> IP_ALSoundPlayer -----------------------------------------------------*
  * ***************************************************************************
- * Description : Simple music player class                                   *
+ * Description : Class to play a simple sound based on OpenAL system         *
  * Developper  : Jean-Milost Reymond                                         *
  *****************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import <AVFoundation/AVAudioPlayer.h>
+#import <OpenAL/al.h>
+#import <OpenAL/alc.h>
 #import "IP_PlayerProtocol.h"
 
-/**
-* Music player class
-*@author Jean-Milost Reymond
-*/
-@interface IP_MusicPlayer : NSObject <IP_PlayerProtocol>
+@interface IP_ALSoundPlayer : NSObject <IP_PlayerProtocol>
 {
-    AVAudioPlayer* m_pPlayer;
+    @private
+        ALCdevice*  m_pDevice;
+        ALCcontext* m_pContext;
+        ALuint      m_BufferID;
+        ALuint      m_ID;
+        ALuint      m_ErrorID;
 }
 
 /**
@@ -30,17 +32,17 @@
 - (void)dealloc;
 
 /**
+* Release OpenAL resources
+*/
+- (void)ReleaseOpenAL;
+
+/**
 * Loads the given sound
 *@param pResourceName - resource name to play
 *@param pExtension - resource extension
 *@returns true on success, otherwise false
 */
 - (bool)Load :(NSString*)pResourceName :(NSString*)pExtension;
-
-/**
-* Prepares music to be played
-*/
-- (void)PrepareToPlay;
 
 /**
 * Plays the music

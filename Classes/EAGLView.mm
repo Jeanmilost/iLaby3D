@@ -125,7 +125,7 @@
 - (void)dealloc
 {
     [self stopAnimation];
-    
+
     if ([EAGLContext currentContext] == m_pContext)
         [EAGLContext setCurrentContext:nil];
 
@@ -174,6 +174,14 @@
         }
 
         glEnable(GL_CULL_FACE);
+
+        #ifdef Show_Advertisements
+            if (m_RunningTimeLabel)
+                m_RunningTimeLabel.frame = CGRectMake(m_RunningTimeLabel.frame.origin.x,
+                                                      398,
+                                                      m_RunningTimeLabel.frame.size.width,
+                                                      m_RunningTimeLabel.frame.size.height);
+        #endif
 
         // initialize welcome object
         if (m_pWelcome)

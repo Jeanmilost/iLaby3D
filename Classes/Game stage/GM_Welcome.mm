@@ -16,6 +16,44 @@
 //------------------------------------------------------------------------------
 #define M_Offset_Max        300.0f
 #define M_Settings_FileName "settings.ini"
+#ifndef Show_Advertisements
+    #define M_Logo_Y                  -160.0f
+    #define M_Button_Underground_Y    -10.0f
+    #define M_Button_Tree_Y           -10.0f
+    #define M_Button_Snow_Y            100.0f
+    #define M_Button_OnMars_Y          100.0f
+    #define M_Logo_Sound_Y            -64.0f
+    #define M_Slide_Sound_Y           -30.0f
+    #define M_Slide_Sound_BG_Y        -30.0f
+    #define M_Logo_Music_Y             26.0f
+    #define M_Slide_Music_BG_Y         60.0f
+    #define M_Slide_Music_Y            60.0f
+    #define M_Logo_Size_Y              116.0f
+    #define M_Slide_Size_BG_Y          150.0f
+    #define M_Slide_Size_Y             150.0f
+    #define M_Button_Settings_Y        220.0f
+    #define M_Button_Close_Settings_Y  220.0f
+    #define M_Button_Quit_Y            220.0f
+#else
+    #define M_Logo_Y                  -175.0f
+    #define M_Button_Underground_Y    -52.5f
+    #define M_Button_Tree_Y           -52.5f
+    #define M_Button_Snow_Y            57.5f
+    #define M_Button_OnMars_Y          57.5f
+    #define M_Logo_Sound_Y            -86.5f
+    #define M_Slide_Sound_Y           -52.5f
+    #define M_Slide_Sound_BG_Y        -52.5f
+    #define M_Logo_Music_Y            -6.5f
+    #define M_Slide_Music_BG_Y         27.5f
+    #define M_Slide_Music_Y            27.5f
+    #define M_Logo_Size_Y              73.5f
+    #define M_Slide_Size_BG_Y          107.5f
+    #define M_Slide_Size_Y             107.5f
+    #define M_Button_Settings_Y        150.0f
+    #define M_Button_Close_Settings_Y  150.0f
+    #define M_Button_Quit_Y            150.0f
+    #define M_Copyright_Y              210.0f
+#endif
 //------------------------------------------------------------------------------
 // class GM_Welcome - objective c
 //------------------------------------------------------------------------------
@@ -137,6 +175,10 @@
         [m_pTexture[14] Load :@"Exit_Settings_Button_No_Text" :@"png"];
         [m_pTexture[15] Load :@"Exit_Settings_Button_Push_No_Text" :@"png"];
 
+        #ifdef Show_Advertisements
+            [m_pTexture[16] Load :@"Copyright" :@"png"];
+        #endif
+
         for (unsigned i = 0; i < M_Nb_Welcome_Sprites; ++i)
         {
             m_pSprite[i]            = [[IP_Sprite alloc]init];
@@ -144,72 +186,78 @@
         }
 
         [m_pSprite[IE_Logo] Create:100.0f :100.0f];
-        [m_pSprite[IE_Logo] Set :E_Vector3D(0.0f, -160.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Logo] Set :E_Vector3D(0.0f, M_Logo_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
         m_pSprite[IE_Logo].m_pTexture = m_pTexture[0];
 
         [m_pSprite[IE_Level_Underground] Create:100.0f :100.0f];
-        [m_pSprite[IE_Level_Underground] Set :E_Vector3D(-55.0f, -10.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Level_Underground] Set :E_Vector3D(-55.0f, M_Button_Underground_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
         m_pSprite[IE_Level_Underground].m_pTexture = m_pTexture[1];
 
         [m_pSprite[IE_Level_Trees] Create:100.0f :100.0f];
-        [m_pSprite[IE_Level_Trees] Set :E_Vector3D(55.0f, -10.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Level_Trees] Set :E_Vector3D(55.0f, M_Button_Tree_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
         m_pSprite[IE_Level_Trees].m_pTexture = m_pTexture[2];
 
         [m_pSprite[IE_Level_Snow] Create:100.0f :100.0f];
-        [m_pSprite[IE_Level_Snow] Set :E_Vector3D(-55.0f, 100.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Level_Snow] Set :E_Vector3D(-55.0f, M_Button_Snow_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
         m_pSprite[IE_Level_Snow].m_pTexture = m_pTexture[3];
 
         [m_pSprite[IE_Level_Mars] Create:100.0f :100.0f];
-        [m_pSprite[IE_Level_Mars] Set :E_Vector3D(55.0f, 100.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Level_Mars] Set :E_Vector3D(55.0f, M_Button_OnMars_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
         m_pSprite[IE_Level_Mars].m_pTexture = m_pTexture[4];
 
         [m_pSprite[IE_Button_Settings] Create:100.0f :24.0f];
-        [m_pSprite[IE_Button_Settings] Set :E_Vector3D(-55.0f, 220.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Button_Settings] Set :E_Vector3D(-55.0f, M_Button_Settings_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
         m_pSprite[IE_Button_Settings].m_pTexture = m_pTexture[5];
 
         [m_pSprite[IE_Button_Quit] Create:100.0f :24.0f];
-        [m_pSprite[IE_Button_Quit] Set :E_Vector3D(55.0f, 220.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Button_Quit] Set :E_Vector3D(55.0f, M_Button_Quit_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
         m_pSprite[IE_Button_Quit].m_pTexture = m_pTexture[7];
 
         [m_pSprite[IE_Logo_Sound] Create:32.0f :32.0f];
-        [m_pSprite[IE_Logo_Sound] Set :E_Vector3D(M_Offset_Max, -64.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Logo_Sound] Set :E_Vector3D(M_Offset_Max, M_Logo_Sound_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
         m_pSprite[IE_Logo_Sound].m_pTexture = m_pTexture[11];
 
         [m_pSprite[IE_Slide_Sound_BG] Create:256.0f :8.0f];
-        [m_pSprite[IE_Slide_Sound_BG] Set :E_Vector3D(M_Offset_Max, -30.0f, 2.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Slide_Sound_BG] Set :E_Vector3D(M_Offset_Max, M_Slide_Sound_BG_Y, 2.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
         m_pSprite[IE_Slide_Sound_BG].m_pTexture = m_pTexture[9];
 
         [m_pSprite[IE_Slide_Sound] Create:16.0f :16.0f];
-        [m_pSprite[IE_Slide_Sound] Set :E_Vector3D(m_SoundSlidePos + M_Offset_Max, -30.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Slide_Sound] Set :E_Vector3D(m_SoundSlidePos + M_Offset_Max, M_Slide_Sound_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
         m_pSprite[IE_Slide_Sound].m_pTexture = m_pTexture[10];
 
         [m_pSprite[IE_Logo_Music] Create:32.0f :32.0f];
-        [m_pSprite[IE_Logo_Music] Set :E_Vector3D(M_Offset_Max, 26.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Logo_Music] Set :E_Vector3D(M_Offset_Max, M_Logo_Music_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
         m_pSprite[IE_Logo_Music].m_pTexture = m_pTexture[12];
 
         [m_pSprite[IE_Slide_Music_BG] Create:256.0f :8.0f];
-        [m_pSprite[IE_Slide_Music_BG] Set :E_Vector3D(M_Offset_Max, 60.0f, 2.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Slide_Music_BG] Set :E_Vector3D(M_Offset_Max, M_Slide_Music_BG_Y, 2.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
         m_pSprite[IE_Slide_Music_BG].m_pTexture = m_pTexture[9];
 
         [m_pSprite[IE_Slide_Music] Create:16.0f :16.0f];
-        [m_pSprite[IE_Slide_Music] Set :E_Vector3D(m_MusicSlidePos + M_Offset_Max, 60.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Slide_Music] Set :E_Vector3D(m_MusicSlidePos + M_Offset_Max, M_Slide_Music_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
         m_pSprite[IE_Slide_Music].m_pTexture = m_pTexture[10];
 
         [m_pSprite[IE_Logo_Size] Create:32.0f :32.0f];
-        [m_pSprite[IE_Logo_Size] Set :E_Vector3D(M_Offset_Max, 116.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Logo_Size] Set :E_Vector3D(M_Offset_Max, M_Logo_Size_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
         m_pSprite[IE_Logo_Size].m_pTexture = m_pTexture[13];
 
         [m_pSprite[IE_Slide_Size_BG] Create:256.0f :8.0f];
-        [m_pSprite[IE_Slide_Size_BG] Set :E_Vector3D(M_Offset_Max, 150.0f, 2.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Slide_Size_BG] Set :E_Vector3D(M_Offset_Max, M_Slide_Size_BG_Y, 2.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
         m_pSprite[IE_Slide_Size_BG].m_pTexture = m_pTexture[9];
 
         [m_pSprite[IE_Slide_Size] Create:16.0f :16.0f];
-        [m_pSprite[IE_Slide_Size] Set :E_Vector3D(m_SizeSlidePos + M_Offset_Max, 150.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Slide_Size] Set :E_Vector3D(m_SizeSlidePos + M_Offset_Max, M_Slide_Size_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
         m_pSprite[IE_Slide_Size].m_pTexture = m_pTexture[10];
 
         [m_pSprite[IE_Button_Close_Settings] Create:100.0f :24.0f];
-        [m_pSprite[IE_Button_Close_Settings] Set :E_Vector3D(M_Offset_Max, 220.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Button_Close_Settings] Set :E_Vector3D(M_Offset_Max, M_Button_Close_Settings_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
         m_pSprite[IE_Button_Close_Settings].m_pTexture = m_pTexture[14];
+
+        #ifdef Show_Advertisements
+            [m_pSprite[IE_Copyright] Create:512.0f :32.0f];
+            [m_pSprite[IE_Copyright] Set :E_Vector3D(0.0f, M_Copyright_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+            m_pSprite[IE_Copyright].m_pTexture = m_pTexture[16];
+        #endif
 
         // this is a litthe "hack" to avoid that the button is visible with a blank texture the first time the user click on
         m_pSprite[IE_Button_Settings].m_pTexture = m_pTexture[6];
@@ -221,6 +269,10 @@
         m_pSprite[IE_Button_Close_Settings].m_pTexture = m_pTexture[15];
         [m_pSprite[IE_Button_Close_Settings] Render];
         m_pSprite[IE_Button_Close_Settings].m_pTexture = m_pTexture[14];
+
+        #ifdef Show_Advertisements
+            m_pSprite[IE_Copyright].m_pTexture = m_pTexture[16];
+        #endif
 
         m_Ready = true;
         return true;
@@ -580,52 +632,52 @@
     }
 
     if (m_pSprite[IE_Level_Underground])
-        [m_pSprite[IE_Level_Underground] Set :E_Vector3D(-55.0f + m_Offset, -10.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Level_Underground] Set :E_Vector3D(-55.0f + m_Offset, M_Button_Underground_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
 
     if (m_pSprite[IE_Level_Trees])
-        [m_pSprite[IE_Level_Trees] Set :E_Vector3D(55.0f + m_Offset, -10.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Level_Trees] Set :E_Vector3D(55.0f + m_Offset, M_Button_Tree_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
 
     if (m_pSprite[IE_Level_Snow])
-        [m_pSprite[IE_Level_Snow] Set :E_Vector3D(-55.0f + m_Offset, 100.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Level_Snow] Set :E_Vector3D(-55.0f + m_Offset, M_Button_Snow_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
 
     if (m_pSprite[IE_Level_Mars])
-        [m_pSprite[IE_Level_Mars] Set :E_Vector3D(55.0f + m_Offset, 100.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Level_Mars] Set :E_Vector3D(55.0f + m_Offset, M_Button_OnMars_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
 
     if (m_pSprite[IE_Button_Settings])
-        [m_pSprite[IE_Button_Settings] Set :E_Vector3D(-55.0f + m_Offset, 220.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Button_Settings] Set :E_Vector3D(-55.0f + m_Offset, M_Button_Settings_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
 
     if (m_pSprite[IE_Button_Quit])
-        [m_pSprite[IE_Button_Quit] Set :E_Vector3D(55.0f + m_Offset, 220.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Button_Quit] Set :E_Vector3D(55.0f + m_Offset, M_Button_Quit_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
 
     if (m_pSprite[IE_Logo_Sound])
-        [m_pSprite[IE_Logo_Sound] Set :E_Vector3D(M_Offset_Max + m_Offset, -64.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Logo_Sound] Set :E_Vector3D(M_Offset_Max + m_Offset, M_Logo_Sound_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
 
     if (m_pSprite[IE_Slide_Sound_BG])
-        [m_pSprite[IE_Slide_Sound_BG] Set :E_Vector3D(M_Offset_Max + m_Offset, -30.0f, 2.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Slide_Sound_BG] Set :E_Vector3D(M_Offset_Max + m_Offset, M_Slide_Sound_BG_Y, 2.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
 
     if (m_pSprite[IE_Slide_Sound])
-        [m_pSprite[IE_Slide_Sound] Set :E_Vector3D(m_SoundSlidePos + M_Offset_Max + m_Offset, -30.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Slide_Sound] Set :E_Vector3D(m_SoundSlidePos + M_Offset_Max + m_Offset, M_Slide_Sound_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
 
     if (m_pSprite[IE_Logo_Music])
-        [m_pSprite[IE_Logo_Music] Set :E_Vector3D(M_Offset_Max + m_Offset, 26.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Logo_Music] Set :E_Vector3D(M_Offset_Max + m_Offset, M_Logo_Music_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
 
     if (m_pSprite[IE_Slide_Music_BG])
-        [m_pSprite[IE_Slide_Music_BG] Set :E_Vector3D(M_Offset_Max + m_Offset, 60.0f, 2.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Slide_Music_BG] Set :E_Vector3D(M_Offset_Max + m_Offset, M_Slide_Music_BG_Y, 2.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
 
     if (m_pSprite[IE_Slide_Music])
-        [m_pSprite[IE_Slide_Music] Set :E_Vector3D(m_MusicSlidePos + M_Offset_Max + m_Offset, 60.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Slide_Music] Set :E_Vector3D(m_MusicSlidePos + M_Offset_Max + m_Offset, M_Slide_Music_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
 
     if (m_pSprite[IE_Logo_Size])
-        [m_pSprite[IE_Logo_Size] Set :E_Vector3D(M_Offset_Max + m_Offset, 116.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Logo_Size] Set :E_Vector3D(M_Offset_Max + m_Offset, M_Logo_Size_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
 
     if (m_pSprite[IE_Slide_Size_BG])
-        [m_pSprite[IE_Slide_Size_BG] Set :E_Vector3D(M_Offset_Max + m_Offset, 150.0f, 2.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Slide_Size_BG] Set :E_Vector3D(M_Offset_Max + m_Offset, M_Slide_Size_BG_Y, 2.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
 
     if (m_pSprite[IE_Slide_Size])
-        [m_pSprite[IE_Slide_Size] Set :E_Vector3D(m_SizeSlidePos + M_Offset_Max + m_Offset, 150.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Slide_Size] Set :E_Vector3D(m_SizeSlidePos + M_Offset_Max + m_Offset, M_Slide_Size_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
 
     if (m_pSprite[IE_Button_Close_Settings])
-        [m_pSprite[IE_Button_Close_Settings] Set :E_Vector3D(M_Offset_Max + m_Offset, 220.0f, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
+        [m_pSprite[IE_Button_Close_Settings] Set :E_Vector3D(M_Offset_Max + m_Offset, M_Button_Close_Settings_Y, 1.0f) :E_Vector3D(0.0f, 0.0f, 0.0f) :0.0f];
 }
 //------------------------------------------------------------------------------
 - (void)SetOnBeginGame_Underground_Delegate :(id)pObject :(SEL)pDelegate

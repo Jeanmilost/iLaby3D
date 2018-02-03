@@ -13,8 +13,13 @@
 #import "IP_Texture.h"
 #include <string>
 
-#define M_Nb_Welcome_Textures 16
-#define M_Nb_Welcome_Sprites  17
+#ifndef Show_Advertisements
+    #define M_Nb_Welcome_Textures 16
+    #define M_Nb_Welcome_Sprites  17
+#else
+    #define M_Nb_Welcome_Textures 17
+    #define M_Nb_Welcome_Sprites  18
+#endif
 
 @interface GM_Welcome : GM_Stage <GM_StageProtocol>
 {
@@ -41,6 +46,9 @@
             IE_Slide_Size_BG         = 14,
             IE_Slide_Size            = 15,
             IE_Button_Close_Settings = 16,
+            #ifdef Show_Advertisements
+                IE_Copyright         = 17,
+            #endif
         };
 
         float           m_Offset;

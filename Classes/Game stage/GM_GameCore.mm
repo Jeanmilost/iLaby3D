@@ -181,8 +181,8 @@
                 m_pWalls = [[IP_Walls alloc]init :@"Soil_25_256x256" :@"Wall_Tilleable_64_256x256" :@"Ceiling_100_256x256"];
                 [m_pWalls CreateMaze :width :height :true];
 
-                m_pStep = [[IP_MusicPlayer alloc]init];
-                [m_pStep Load :@"Sound_Step_Underground" :@"mp3"];
+                m_pStep = [[IP_ALSoundPlayer alloc]init];
+                [m_pStep Load :@"Sound_Step_Underground" :@"wav"];
 
                 m_pAmbientSound1 = [[IP_MusicPlayer alloc]init];
                 [m_pAmbientSound1 Load:@"Goutte_Grotte" :@"mp3"];
@@ -207,8 +207,8 @@
                 m_pWalls = [[IP_Walls alloc]init :@"Grass_64_256x256" :@"tree_256_Texturized"];
                 [m_pWalls CreateMaze :width :height :false];
 
-                m_pStep = [[IP_MusicPlayer alloc]init];
-                [m_pStep Load :@"Sound_Step_Grass" :@"mp3"];
+                m_pStep = [[IP_ALSoundPlayer alloc]init];
+                [m_pStep Load :@"Sound_Step_Grass" :@"wav"];
 
                 m_pAmbientSound1 = [[IP_MusicPlayer alloc]init];
                 [m_pAmbientSound1 Load:@"Bird_Sound_1" :@"mp3"];
@@ -233,8 +233,8 @@
                 m_pWalls = [[IP_Walls alloc]init :@"Snow_Soil_100_256x256" :@"Snow_Walls_100_256x256"];
                 [m_pWalls CreateMaze :width :height :false];
 
-                m_pStep = [[IP_MusicPlayer alloc]init];
-                [m_pStep Load :@"Sound_Step_Snow" :@"mp3"];
+                m_pStep = [[IP_ALSoundPlayer alloc]init];
+                [m_pStep Load :@"Sound_Step_Snow" :@"wav"];
 
                 m_pAmbientSound1 = [[IP_MusicPlayer alloc]init];
                 [m_pAmbientSound1 Load:@"Sound_Wind_1" :@"mp3"];
@@ -259,8 +259,8 @@
                 m_pWalls = [[IP_Walls alloc]init :@"Soil_Mars_100_256x256" :@"Wall_Mars_64_256x256"];
                 [m_pWalls CreateMaze :width :height :false];
 
-                m_pStep = [[IP_MusicPlayer alloc]init];
-                [m_pStep Load :@"Sound_Step_Sand" :@"mp3"];
+                m_pStep = [[IP_ALSoundPlayer alloc]init];
+                [m_pStep Load :@"Sound_Step_Sand" :@"wav"];
 
                 m_pAmbientSound1 = [[IP_MusicPlayer alloc]init];
                 [m_pAmbientSound1 Load:@"Sound_Mars_1" :@"mp3"];
@@ -602,8 +602,6 @@
                 m_LastPlane = E_Plane(0.0f, 0.0f, 0.0f, 0.0f);
         }
 
-        // todo -cBug -oJean: movement is cut when the step sound is played
-        /*
         // play step sound
         if (g_Player.m_Position != oldPosition)
         {
@@ -611,7 +609,7 @@
             float soundElapsed  = ((now < 0) ? 0 - now : now) - m_LastPlayedStep;
             float soundVelocity = [m_pUserControl UpdatePosVelocity :1.0f];
                   soundVelocity = soundVelocity < 0.0f ? -soundVelocity : soundVelocity;
-            float tickPlaySound = 0.05f / soundVelocity;
+            float tickPlaySound = 0.1f / soundVelocity;
 
             if (soundElapsed >= tickPlaySound)
             {
@@ -621,7 +619,6 @@
                 m_LastPlayedStep = now;
             }
         }
-        */
 
         unsigned randomNumber = E_Random::GetNumber(10000);
 

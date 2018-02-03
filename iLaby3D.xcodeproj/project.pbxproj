@@ -58,6 +58,7 @@
 		1D95EA89136F460200122EAE /* Soil_Mars_100_256x256.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D95EA86136F460200122EAE /* Soil_Mars_100_256x256.jpg */; };
 		1D95EA8B136F463A00122EAE /* Ceiling_100_256x256.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D95EA8A136F463A00122EAE /* Ceiling_100_256x256.jpg */; };
 		1D95EA8D136F466900122EAE /* Wall_Mars_64_256x256.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D95EA8C136F466900122EAE /* Wall_Mars_64_256x256.jpg */; };
+		1D962020141D3B67005CED78 /* IP_SoundPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D96201F141D3B67005CED78 /* IP_SoundPlayer.mm */; };
 		1D9B44AD137C28680016EBA4 /* GM_Stage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D9B44A8137C28680016EBA4 /* GM_Stage.mm */; };
 		1D9B44AE137C28680016EBA4 /* GM_GameCore.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D9B44AA137C28680016EBA4 /* GM_GameCore.mm */; };
 		1D9B44AF137C28680016EBA4 /* GM_Welcome.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D9B44AC137C28680016EBA4 /* GM_Welcome.mm */; };
@@ -82,10 +83,6 @@
 		1DAB0E4313709ACA003A0241 /* Sound_Mars_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DAB0E3713709ACA003A0241 /* Sound_Mars_2.mp3 */; };
 		1DAB0E4413709ACA003A0241 /* Sound_Wind_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DAB0E3813709ACA003A0241 /* Sound_Wind_1.mp3 */; };
 		1DAB0E4513709ACA003A0241 /* Sound_Wind_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DAB0E3913709ACA003A0241 /* Sound_Wind_2.mp3 */; };
-		1DB2D4541371BD9B002E5A4D /* Sound_Step_Grass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DB2D4501371BD9B002E5A4D /* Sound_Step_Grass.mp3 */; };
-		1DB2D4551371BD9B002E5A4D /* Sound_Step_Sand.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DB2D4511371BD9B002E5A4D /* Sound_Step_Sand.mp3 */; };
-		1DB2D4561371BD9B002E5A4D /* Sound_Step_Snow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DB2D4521371BD9B002E5A4D /* Sound_Step_Snow.mp3 */; };
-		1DB2D4571371BD9B002E5A4D /* Sound_Step_Underground.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DB2D4531371BD9B002E5A4D /* Sound_Step_Underground.mp3 */; };
 		1DB2D46D1371C714002E5A4D /* Entry.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DB2D46A1371C714002E5A4D /* Entry.png */; };
 		1DB2D46E1371C714002E5A4D /* Exit_Closed.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DB2D46B1371C714002E5A4D /* Exit_Closed.png */; };
 		1DB2D46F1371C714002E5A4D /* Exit_Opened.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DB2D46C1371C714002E5A4D /* Exit_Opened.png */; };
@@ -93,10 +90,19 @@
 		1DBB863B12EDB87F00F7C433 /* IP_StringTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB863A12EDB87F00F7C433 /* IP_StringTools.mm */; };
 		1DC56DF014093E78003BE74D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DC56DEF14093E78003BE74D /* Icon.png */; };
 		1DC56E65140951F7003BE74D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC56E64140951F7003BE74D /* AudioToolbox.framework */; };
+		1DCF49021424BD8E00C601AB /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCF49011424BD8E00C601AB /* OpenAL.framework */; };
+		1DCF49D21424BE3500C601AB /* IP_PlayerProtocol.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF49D11424BE3500C601AB /* IP_PlayerProtocol.mm */; };
+		1DCF49E71424C37300C601AB /* IP_ALSoundPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF49E61424C37300C601AB /* IP_ALSoundPlayer.mm */; };
+		1DCF4AA31424DFCB00C601AB /* Sound_Step_Grass.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1DCF4AA21424DFCB00C601AB /* Sound_Step_Grass.wav */; };
+		1DCF4AC91424E42D00C601AB /* Sound_Step_Sand.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1DCF4AC61424E42D00C601AB /* Sound_Step_Sand.wav */; };
+		1DCF4ACA1424E42D00C601AB /* Sound_Step_Snow.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1DCF4AC71424E42D00C601AB /* Sound_Step_Snow.wav */; };
+		1DCF4ACB1424E42D00C601AB /* Sound_Step_Underground.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1DCF4AC81424E42D00C601AB /* Sound_Step_Underground.wav */; };
+		1DCF4AE51424F91800C601AB /* Copyright.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DCF4AE41424F91800C601AB /* Copyright.png */; };
 		1DD44B9F12D8F5F50077BEB6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD44B9E12D8F5F50077BEB6 /* CoreGraphics.framework */; };
 		1DD44BC512D8F6260077BEB6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD44BC412D8F6260077BEB6 /* AVFoundation.framework */; };
 		1DD4763E1372FE130054EC79 /* IP_Constants.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DD4763D1372FE130054EC79 /* IP_Constants.mm */; };
 		1DD476B213730E820054EC79 /* Transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DD476B113730E820054EC79 /* Transparent.png */; };
+		1DE75ED2141400B300B506F2 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE75ED1141400B300B506F2 /* iAd.framework */; };
 		1DF08E0F137D55B0006E5F65 /* IP_Delegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DF08E0E137D55B0006E5F65 /* IP_Delegate.mm */; };
 		1DF5DF8713709B2D004D4D63 /* Snow_Soil_100_256x256.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1DF5DF8513709B2D004D4D63 /* Snow_Soil_100_256x256.jpg */; };
 		1DF5DF8813709B2D004D4D63 /* Snow_Walls_100_256x256.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1DF5DF8613709B2D004D4D63 /* Snow_Walls_100_256x256.jpg */; };
@@ -178,6 +184,8 @@
 		1D95EA86136F460200122EAE /* Soil_Mars_100_256x256.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Soil_Mars_100_256x256.jpg; path = Graphics/Soil_Mars_100_256x256.jpg; sourceTree = "<group>"; };
 		1D95EA8A136F463A00122EAE /* Ceiling_100_256x256.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Ceiling_100_256x256.jpg; path = Graphics/Ceiling_100_256x256.jpg; sourceTree = "<group>"; };
 		1D95EA8C136F466900122EAE /* Wall_Mars_64_256x256.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Wall_Mars_64_256x256.jpg; path = Graphics/Wall_Mars_64_256x256.jpg; sourceTree = "<group>"; };
+		1D96201E141D3B67005CED78 /* IP_SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IP_SoundPlayer.h; path = "iPhone engine/Music/IP_SoundPlayer.h"; sourceTree = "<group>"; };
+		1D96201F141D3B67005CED78 /* IP_SoundPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = IP_SoundPlayer.mm; path = "iPhone engine/Music/IP_SoundPlayer.mm"; sourceTree = "<group>"; };
 		1D9B44A7137C28680016EBA4 /* GM_Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GM_Stage.h; path = "Game stage/GM_Stage.h"; sourceTree = "<group>"; };
 		1D9B44A8137C28680016EBA4 /* GM_Stage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GM_Stage.mm; path = "Game stage/GM_Stage.mm"; sourceTree = "<group>"; };
 		1D9B44A9137C28680016EBA4 /* GM_GameCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GM_GameCore.h; path = "Game stage/GM_GameCore.h"; sourceTree = "<group>"; };
@@ -211,10 +219,6 @@
 		1DAB0E3713709ACA003A0241 /* Sound_Mars_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Sound_Mars_2.mp3; path = Sounds/Sound_Mars_2.mp3; sourceTree = "<group>"; };
 		1DAB0E3813709ACA003A0241 /* Sound_Wind_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Sound_Wind_1.mp3; path = Sounds/Sound_Wind_1.mp3; sourceTree = "<group>"; };
 		1DAB0E3913709ACA003A0241 /* Sound_Wind_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Sound_Wind_2.mp3; path = Sounds/Sound_Wind_2.mp3; sourceTree = "<group>"; };
-		1DB2D4501371BD9B002E5A4D /* Sound_Step_Grass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Sound_Step_Grass.mp3; path = Sounds/Sound_Step_Grass.mp3; sourceTree = "<group>"; };
-		1DB2D4511371BD9B002E5A4D /* Sound_Step_Sand.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Sound_Step_Sand.mp3; path = Sounds/Sound_Step_Sand.mp3; sourceTree = "<group>"; };
-		1DB2D4521371BD9B002E5A4D /* Sound_Step_Snow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Sound_Step_Snow.mp3; path = Sounds/Sound_Step_Snow.mp3; sourceTree = "<group>"; };
-		1DB2D4531371BD9B002E5A4D /* Sound_Step_Underground.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Sound_Step_Underground.mp3; path = Sounds/Sound_Step_Underground.mp3; sourceTree = "<group>"; };
 		1DB2D46A1371C714002E5A4D /* Entry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Entry.png; path = Graphics/Entry.png; sourceTree = "<group>"; };
 		1DB2D46B1371C714002E5A4D /* Exit_Closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Exit_Closed.png; path = Graphics/Exit_Closed.png; sourceTree = "<group>"; };
 		1DB2D46C1371C714002E5A4D /* Exit_Opened.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Exit_Opened.png; path = Graphics/Exit_Opened.png; sourceTree = "<group>"; };
@@ -224,11 +228,22 @@
 		1DBB863A12EDB87F00F7C433 /* IP_StringTools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = IP_StringTools.mm; path = "iPhone engine/Base/IP_StringTools.mm"; sourceTree = "<group>"; };
 		1DC56DEF14093E78003BE74D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Graphics/Icon.png; sourceTree = "<group>"; };
 		1DC56E64140951F7003BE74D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		1DCF49011424BD8E00C601AB /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		1DCF49D01424BE3500C601AB /* IP_PlayerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IP_PlayerProtocol.h; path = "iPhone engine/Music/IP_PlayerProtocol.h"; sourceTree = "<group>"; };
+		1DCF49D11424BE3500C601AB /* IP_PlayerProtocol.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = IP_PlayerProtocol.mm; path = "iPhone engine/Music/IP_PlayerProtocol.mm"; sourceTree = "<group>"; };
+		1DCF49E51424C37300C601AB /* IP_ALSoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IP_ALSoundPlayer.h; path = "iPhone engine/Music/IP_ALSoundPlayer.h"; sourceTree = "<group>"; };
+		1DCF49E61424C37300C601AB /* IP_ALSoundPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = IP_ALSoundPlayer.mm; path = "iPhone engine/Music/IP_ALSoundPlayer.mm"; sourceTree = "<group>"; };
+		1DCF4AA21424DFCB00C601AB /* Sound_Step_Grass.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Sound_Step_Grass.wav; path = Sounds/Sound_Step_Grass.wav; sourceTree = "<group>"; };
+		1DCF4AC61424E42D00C601AB /* Sound_Step_Sand.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Sound_Step_Sand.wav; path = Sounds/Sound_Step_Sand.wav; sourceTree = "<group>"; };
+		1DCF4AC71424E42D00C601AB /* Sound_Step_Snow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Sound_Step_Snow.wav; path = Sounds/Sound_Step_Snow.wav; sourceTree = "<group>"; };
+		1DCF4AC81424E42D00C601AB /* Sound_Step_Underground.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Sound_Step_Underground.wav; path = Sounds/Sound_Step_Underground.wav; sourceTree = "<group>"; };
+		1DCF4AE41424F91800C601AB /* Copyright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Copyright.png; path = Graphics/Copyright.png; sourceTree = "<group>"; };
 		1DD44B9E12D8F5F50077BEB6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1DD44BC412D8F6260077BEB6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1DD4763C1372FE130054EC79 /* IP_Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IP_Constants.h; path = "iPhone engine/Constants/IP_Constants.h"; sourceTree = "<group>"; };
 		1DD4763D1372FE130054EC79 /* IP_Constants.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = IP_Constants.mm; path = "iPhone engine/Constants/IP_Constants.mm"; sourceTree = "<group>"; };
 		1DD476B113730E820054EC79 /* Transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Transparent.png; path = Graphics/Transparent.png; sourceTree = "<group>"; };
+		1DE75ED1141400B300B506F2 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		1DF08E0D137D55B0006E5F65 /* IP_Delegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IP_Delegate.h; path = "iPhone engine/Base/IP_Delegate.h"; sourceTree = "<group>"; };
 		1DF08E0E137D55B0006E5F65 /* IP_Delegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = IP_Delegate.mm; path = "iPhone engine/Base/IP_Delegate.mm"; sourceTree = "<group>"; };
 		1DF5DF8513709B2D004D4D63 /* Snow_Soil_100_256x256.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Snow_Soil_100_256x256.jpg; path = Graphics/Snow_Soil_100_256x256.jpg; sourceTree = "<group>"; };
@@ -254,6 +269,8 @@
 				1DD44B9F12D8F5F50077BEB6 /* CoreGraphics.framework in Frameworks */,
 				1DD44BC512D8F6260077BEB6 /* AVFoundation.framework in Frameworks */,
 				1DC56E65140951F7003BE74D /* AudioToolbox.framework in Frameworks */,
+				1DE75ED2141400B300B506F2 /* iAd.framework in Frameworks */,
+				1DCF49021424BD8E00C601AB /* OpenAL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,8 +352,14 @@
 		1D591E4F12E8A3DB00AFF042 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				1DCF49E61424C37300C601AB /* IP_ALSoundPlayer.mm */,
+				1DCF49E51424C37300C601AB /* IP_ALSoundPlayer.h */,
 				1D591E5612E8A44F00AFF042 /* IP_MusicPlayer.mm */,
 				1D591E5512E8A44F00AFF042 /* IP_MusicPlayer.h */,
+				1DCF49D11424BE3500C601AB /* IP_PlayerProtocol.mm */,
+				1DCF49D01424BE3500C601AB /* IP_PlayerProtocol.h */,
+				1D96201F141D3B67005CED78 /* IP_SoundPlayer.mm */,
+				1D96201E141D3B67005CED78 /* IP_SoundPlayer.h */,
 			);
 			name = Music;
 			sourceTree = "<group>";
@@ -449,6 +472,7 @@
 			children = (
 				1D87D2681310653C00F7C64F /* Background_Control.png */,
 				1D95EA8A136F463A00122EAE /* Ceiling_100_256x256.jpg */,
+				1DCF4AE41424F91800C601AB /* Copyright.png */,
 				1DB2D46A1371C714002E5A4D /* Entry.png */,
 				1D1DA07E1392CC9800FC97ED /* Exit_Button_No_Text.png */,
 				1D1DA07F1392CC9800FC97ED /* Exit_Button_Push_No_Text.png */,
@@ -502,10 +526,10 @@
 				1DA219BE13D1FB1900F083C1 /* iLaby3D (Version 1).mp3 */,
 				1DAB0E3613709ACA003A0241 /* Sound_Mars_1.mp3 */,
 				1DAB0E3713709ACA003A0241 /* Sound_Mars_2.mp3 */,
-				1DB2D4501371BD9B002E5A4D /* Sound_Step_Grass.mp3 */,
-				1DB2D4511371BD9B002E5A4D /* Sound_Step_Sand.mp3 */,
-				1DB2D4521371BD9B002E5A4D /* Sound_Step_Snow.mp3 */,
-				1DB2D4531371BD9B002E5A4D /* Sound_Step_Underground.mp3 */,
+				1DCF4AA21424DFCB00C601AB /* Sound_Step_Grass.wav */,
+				1DCF4AC61424E42D00C601AB /* Sound_Step_Sand.wav */,
+				1DCF4AC71424E42D00C601AB /* Sound_Step_Snow.wav */,
+				1DCF4AC81424E42D00C601AB /* Sound_Step_Underground.wav */,
 				1DAB0E3813709ACA003A0241 /* Sound_Wind_1.mp3 */,
 				1DAB0E3913709ACA003A0241 /* Sound_Wind_2.mp3 */,
 			);
@@ -585,8 +609,10 @@
 				1DD44BC412D8F6260077BEB6 /* AVFoundation.framework */,
 				1DD44B9E12D8F5F50077BEB6 /* CoreGraphics.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
-				28FD15070DC6FC5B0079059D /* QuartzCore.framework */,
+				1DE75ED1141400B300B506F2 /* iAd.framework */,
+				1DCF49011424BD8E00C601AB /* OpenAL.framework */,
 				28FD14FF0DC6FC520079059D /* OpenGLES.framework */,
+				28FD15070DC6FC5B0079059D /* QuartzCore.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 			);
 			name = Frameworks;
@@ -666,10 +692,6 @@
 				1DAB0E4513709ACA003A0241 /* Sound_Wind_2.mp3 in Resources */,
 				1DF5DF8713709B2D004D4D63 /* Snow_Soil_100_256x256.jpg in Resources */,
 				1DF5DF8813709B2D004D4D63 /* Snow_Walls_100_256x256.jpg in Resources */,
-				1DB2D4541371BD9B002E5A4D /* Sound_Step_Grass.mp3 in Resources */,
-				1DB2D4551371BD9B002E5A4D /* Sound_Step_Sand.mp3 in Resources */,
-				1DB2D4561371BD9B002E5A4D /* Sound_Step_Snow.mp3 in Resources */,
-				1DB2D4571371BD9B002E5A4D /* Sound_Step_Underground.mp3 in Resources */,
 				1DB2D46D1371C714002E5A4D /* Entry.png in Resources */,
 				1DB2D46E1371C714002E5A4D /* Exit_Closed.png in Resources */,
 				1DB2D46F1371C714002E5A4D /* Exit_Opened.png in Resources */,
@@ -700,6 +722,11 @@
 				1D9B44CA139D6D6800A2BACF /* Size.png in Resources */,
 				1DA219BF13D1FB1900F083C1 /* iLaby3D (Version 1).mp3 in Resources */,
 				1DC56DF014093E78003BE74D /* Icon.png in Resources */,
+				1DCF4AA31424DFCB00C601AB /* Sound_Step_Grass.wav in Resources */,
+				1DCF4AC91424E42D00C601AB /* Sound_Step_Sand.wav in Resources */,
+				1DCF4ACA1424E42D00C601AB /* Sound_Step_Snow.wav in Resources */,
+				1DCF4ACB1424E42D00C601AB /* Sound_Step_Underground.wav in Resources */,
+				1DCF4AE51424F91800C601AB /* Copyright.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,6 +771,9 @@
 				1D9B4578137C50FD0016EBA4 /* IP_OpenGLHelper.mm in Sources */,
 				1D9B457C137C51360016EBA4 /* IP_Texture.mm in Sources */,
 				1DF08E0F137D55B0006E5F65 /* IP_Delegate.mm in Sources */,
+				1D962020141D3B67005CED78 /* IP_SoundPlayer.mm in Sources */,
+				1DCF49D21424BE3500C601AB /* IP_PlayerProtocol.mm in Sources */,
+				1DCF49E71424C37300C601AB /* IP_ALSoundPlayer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,6 +815,8 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jean-Milost Reymond";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = Show_Advertisements;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -821,10 +853,12 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					_DEBUG,
 					DEBUG,
+					Show_Advertisements,
 				);
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
@@ -836,6 +870,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PREPROCESSOR_DEFINITIONS = Show_Advertisements;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -855,7 +890,7 @@
 				1DF6E4651409654000EEB062 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "iLaby3D" */ = {
 			isa = XCConfigurationList;
@@ -865,7 +900,7 @@
 				1DF6E4641409654000EEB062 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
