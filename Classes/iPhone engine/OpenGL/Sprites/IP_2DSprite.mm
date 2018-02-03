@@ -55,15 +55,11 @@ const GLfloat IP_2DObject::m_TextureCoords[] =
 {
     unsigned verticesSize = M_CountOf(IP_2DObject::m_Vertices);
     m_pSpriteData         = new GLfloat[verticesSize];
-    
-    E_Vector2D vertex[verticesSize / 2];
 
     for (unsigned i = 0; i < verticesSize / 2; ++i)
     {
         m_pSpriteData[2 * i]       = IP_2DObject::m_Vertices[2 * i] * width / 2.0f;
         m_pSpriteData[(2 * i) + 1] = IP_2DObject::m_Vertices[(2 * i) + 1] * height / 2.0f;
-
-        vertex[i] = E_Vector2D(m_pSpriteData[2 * i], m_pSpriteData[(2 * i) + 1]);
     }
 }
 //------------------------------------------------------------------------------

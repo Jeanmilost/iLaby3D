@@ -57,28 +57,37 @@ const GLfloat IP_3DObject::m_TextureCoords[] =
 {
     unsigned verticesSize = M_CountOf(IP_3DObject::m_Vertices);
     m_pSpriteData         = new GLfloat[verticesSize];
+    unsigned vertexCount  = verticesSize / 3;
 
-    E_Vector3D vertex[verticesSize / 3];
+    E_Vector3D* pVertex[vertexCount];
 
-    for (unsigned i = 0; i < verticesSize / 3; ++i)
+    for (unsigned i = 0; i < vertexCount; ++i)
     {
         m_pSpriteData[3 * i]       = IP_3DObject::m_Vertices[3 * i] * width / 2.0f;
         m_pSpriteData[(3 * i) + 1] = IP_3DObject::m_Vertices[(3 * i) + 1] * height / 2.0f;
         m_pSpriteData[(3 * i) + 2] = IP_3DObject::m_Vertices[(3 * i) + 2];
         
-        vertex[i] = E_Vector3D(m_pSpriteData[3 * i], m_pSpriteData[(3 * i) + 1], m_pSpriteData[(3 * i) + 2]);
+        pVertex[i] = new E_Vector3D(m_pSpriteData[3 * i],
+                                    m_pSpriteData[(3 * i) + 1],
+                                    m_pSpriteData[(3 * i) + 2]);
     }
 
     if (m_pPolygonList)
     {
-        for (unsigned i = 0; i < M_CountOf(vertex) - 2; ++i)
+        for (unsigned i = 0; i < M_CountOf(pVertex) - 2; ++i)
         {
-            E_Polygon* pPolygon = new E_Polygon(vertex[i], vertex[i + 1], vertex[i + 2]);
+            E_Polygon* pPolygon = new E_Polygon(*pVertex[i], *pVertex[i + 1], *pVertex[i + 2]);
             m_pPolygonList->AddPolygon(pPolygon);
         }
     }
     else
         M_THROW_EXCEPTION("Polygon list is NULL");
+
+    for (unsigned i = 0; i < vertexCount; ++i)
+    {
+        delete pVertex[i];
+        pVertex[i] = NULL;
+    }
 }
 //------------------------------------------------------------------------------
 - (void)Set :(const E_Vector3D&)position :(const E_Vector3D&)rotation :(const float&)angle
