@@ -46,7 +46,7 @@
     if (m_BufferID != m_ErrorID)
     {
         alDeleteBuffers(1, &m_BufferID);
-        m_ID = m_ErrorID;
+        m_BufferID = m_ErrorID;
     }
 
     // destroy the context
@@ -136,7 +136,7 @@
     UInt32 fileSize = (UInt32)dataSize;
 
     // this is where the audio data will live for the moment
-    unsigned char* pOutData = (unsigned char*)malloc(fileSize);
+    unsigned char* pOutData = new unsigned char[fileSize];
 
     // this where we actually get the bytes from the file and put them into the data buffer
     result = AudioFileReadBytes(fileID, false, 0, &fileSize, pOutData);
@@ -171,7 +171,7 @@
     // clean up the buffer
     if (pOutData)
     {
-        free(pOutData);
+        delete[] pOutData;
         pOutData = NULL;
     }
 
@@ -180,7 +180,7 @@
 //------------------------------------------------------------------------------
 - (bool)Play
 {
-    if (m_ID == 0)
+    if (m_ID == m_ErrorID)
         return false;
 
     alSourcePlay(m_ID);
@@ -189,7 +189,7 @@
 //------------------------------------------------------------------------------
 - (bool)Pause
 {
-    if (m_ID == 0)
+    if (m_ID == m_ErrorID)
         return false;
 
     alSourcePause(m_ID);
@@ -198,7 +198,7 @@
 //------------------------------------------------------------------------------
 - (bool)Stop
 {
-    if (m_ID == 0)
+    if (m_ID == m_ErrorID)
         return false;
 
     alSourceStop(m_ID);
@@ -207,6 +207,9 @@
 //------------------------------------------------------------------------------
 - (bool)IsPlaying
 {
+    if (m_ID == m_ErrorID)
+        return false;
+
     ALenum state;
     alGetSourcei(m_ID, AL_SOURCE_STATE, &state);
     return (state == AL_PLAYING);
@@ -214,6 +217,9 @@
 //------------------------------------------------------------------------------
 - (bool)ChangeVolume :(float)value
 {
+    if (m_ID == m_ErrorID)
+        return false;
+
     if (value >= 0.0f && value <= 1.0f)
     {
         alSourcef(m_ID, AL_GAIN, value);
@@ -225,7 +231,8 @@
 //------------------------------------------------------------------------------
 - (void)Loop :(bool)value
 {
-    alSourcei(m_ID, AL_LOOPING, AL_TRUE);
+    if (m_ID != m_ErrorID)
+        alSourcei(m_ID, AL_LOOPING, AL_TRUE);
 }
 //------------------------------------------------------------------------------
 @end

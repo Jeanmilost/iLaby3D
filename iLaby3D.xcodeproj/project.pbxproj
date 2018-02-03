@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D12325A13881A40003022F9 /* Quit_Button_Push.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D12325813881A40003022F9 /* Quit_Button_Push.png */; };
-		1D12325B13881A40003022F9 /* Quit_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D12325913881A40003022F9 /* Quit_Button.png */; };
 		1D1DA0801392CC9800FC97ED /* Exit_Button_No_Text.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D1DA07E1392CC9800FC97ED /* Exit_Button_No_Text.png */; };
 		1D1DA0811392CC9800FC97ED /* Exit_Button_Push_No_Text.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D1DA07F1392CC9800FC97ED /* Exit_Button_Push_No_Text.png */; };
 		1D1DA0841392CCB500FC97ED /* Settings_Button_No_Text.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D1DA0821392CCB500FC97ED /* Settings_Button_No_Text.png */; };
@@ -113,8 +111,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1D12325813881A40003022F9 /* Quit_Button_Push.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Quit_Button_Push.png; path = /Users/jeanmilost/Desktop/Quit_Button_Push.png; sourceTree = "<absolute>"; };
-		1D12325913881A40003022F9 /* Quit_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Quit_Button.png; path = /Users/jeanmilost/Desktop/Quit_Button.png; sourceTree = "<absolute>"; };
 		1D1DA07E1392CC9800FC97ED /* Exit_Button_No_Text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Exit_Button_No_Text.png; path = Graphics/Exit_Button_No_Text.png; sourceTree = "<group>"; };
 		1D1DA07F1392CC9800FC97ED /* Exit_Button_Push_No_Text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Exit_Button_Push_No_Text.png; path = Graphics/Exit_Button_Push_No_Text.png; sourceTree = "<group>"; };
 		1D1DA0821392CCB500FC97ED /* Settings_Button_No_Text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Settings_Button_No_Text.png; path = Graphics/Settings_Button_No_Text.png; sourceTree = "<group>"; };
@@ -493,8 +489,6 @@
 				1D1DA0821392CCB500FC97ED /* Settings_Button_No_Text.png */,
 				1D1DA0831392CCB500FC97ED /* Settings_Button_Push_No_Text.png */,
 				1D9B44C9139D6D6800A2BACF /* Size.png */,
-				1D12325813881A40003022F9 /* Quit_Button_Push.png */,
-				1D12325913881A40003022F9 /* Quit_Button.png */,
 				1D95EA84136F460200122EAE /* Soil_2_25_256x256.jpg */,
 				1D95EA85136F460200122EAE /* Soil_25_256x256.jpg */,
 				1D95EA86136F460200122EAE /* Soil_Mars_100_256x256.jpg */,
@@ -707,8 +701,6 @@
 				1D865C32137E829C002A4066 /* Underground_Screenshot.jpg in Resources */,
 				1D865C34137E82B2002A4066 /* Trees_Screenshot.jpg in Resources */,
 				1D6891341380535500BC7AC0 /* Logo_Big.png in Resources */,
-				1D12325A13881A40003022F9 /* Quit_Button_Push.png in Resources */,
-				1D12325B13881A40003022F9 /* Quit_Button.png in Resources */,
 				1D1DA0801392CC9800FC97ED /* Exit_Button_No_Text.png in Resources */,
 				1D1DA0811392CC9800FC97ED /* Exit_Button_Push_No_Text.png in Resources */,
 				1D1DA0841392CCB500FC97ED /* Settings_Button_No_Text.png in Resources */,

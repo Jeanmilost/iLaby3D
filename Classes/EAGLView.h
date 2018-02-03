@@ -130,4 +130,14 @@
 */
 - (void)OnLongPress :(UIGestureRecognizer*)pSender;
 
+/**
+* Called when application enters background
+*/
+- (void)OnAppEnterBackground;
+
+/**
+* Called when application enters foreground
+*/
+- (void)OnAppEnterForeground;
+
 @end

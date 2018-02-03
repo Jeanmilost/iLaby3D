@@ -46,6 +46,7 @@
     m_Pause            = false;
     m_Play             = false;
     m_Ready            = false;
+    m_Level            = IE_Unknown;
 
     for (unsigned i = 0; i < 4; ++i)
         m_FogColor[i] = 0.0f;
@@ -168,6 +169,8 @@
     M_Try
     {
         [self Clear];
+
+        m_Level = level;
 
         // initialize new camera
         if (m_pCamera)
@@ -727,6 +730,68 @@
 
     if (m_pOnWinDelegate)
         [m_pOnWinDelegate Set :pObject :pDelegate];
+}
+//------------------------------------------------------------------------------
+- (void)OnAppEnterBackground
+{
+    if (m_pAmbientSound1)
+        [m_pAmbientSound1 Stop];
+
+    if (m_pAmbientSound2)
+        [m_pAmbientSound2 Stop];
+
+    // release openAL resources to avoid problems when application enter foreground again
+    if (m_pStep)
+    {
+        [m_pStep Stop];
+        [m_pStep release];
+        m_pStep = nil;
+    }
+}
+//------------------------------------------------------------------------------
+- (void)OnAppEnterForeground
+{
+    // ensure that openAL resources was really released
+    if (m_pStep)
+    {
+        [m_pStep release];
+        m_pStep = nil;
+    }
+
+    // restore openAL resources
+    switch (m_Level)
+    {
+        case IE_Underground:
+        {
+            m_pStep = [[IP_ALSoundPlayer alloc]init];
+            [m_pStep Load :@"Sound_Step_Underground" :@"wav"];
+            break;
+        }
+
+        case IE_Trees:
+        {
+            m_pStep = [[IP_ALSoundPlayer alloc]init];
+            [m_pStep Load :@"Sound_Step_Grass" :@"wav"];
+            break;
+        }
+
+        case IE_Snow:
+        {
+            m_pStep = [[IP_ALSoundPlayer alloc]init];
+            [m_pStep Load :@"Sound_Step_Snow" :@"wav"];
+            break;
+        }
+
+        case IE_OnMars:
+        {
+            m_pStep = [[IP_ALSoundPlayer alloc]init];
+            [m_pStep Load :@"Sound_Step_Sand" :@"wav"];
+            break;
+        }
+
+        default:
+            break;
+    }
 }
 //------------------------------------------------------------------------------
 @end

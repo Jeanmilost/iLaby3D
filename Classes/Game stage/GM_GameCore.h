@@ -26,6 +26,7 @@
         */
         enum IE_Level
         {
+            IE_Unknown,
             IE_Underground,
             IE_Trees,
             IE_Snow,
@@ -56,6 +57,7 @@
         IP_Delegate*      m_pOnPauseDelegate;
         IP_Delegate*      m_pOnQuitDelegate;
         IP_Delegate*      m_pOnWinDelegate;
+        IE_Level          m_Level;
 }
 
 @property (readonly, nonatomic, assign) bool m_Play;
@@ -184,5 +186,15 @@
 *@param pDelegate - function to delegate
 */
 - (void)SetOnWinDelegate :(id)pObject :(SEL)pDelegate;
+
+/**
+* Called when application enters background
+*/
+- (void)OnAppEnterBackground;
+
+/**
+* Called when application enters foreground
+*/
+- (void)OnAppEnterForeground;
 
 @end

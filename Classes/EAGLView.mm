@@ -83,7 +83,7 @@
             m_AnimationInterval = 1.0 / 60.0;
 
             // create long press gesture recognizer
-            UILongPressGestureRecognizer* pGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+            UILongPressGestureRecognizer* pGestureRecognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self
                     action:@selector(OnLongPress:)];
 
             pGestureRecognizer.minimumPressDuration = 0;
@@ -502,13 +502,14 @@
 {
     M_Try
     {
-        if (m_pGameLabel && m_pGameLabel.text != @"Congratulations")
+        if (m_pGameLabel)
         {
-            m_pGameLabel.text = @"Congratulations";
+            if (m_pGameLabel.text != @"Congratulations")
+                m_pGameLabel.text = @"Congratulations";
+
             [m_pGameLabel setHidden:NO];
         }
         else
-        if (!m_pGameLabel)
             M_THROW_EXCEPTION("Game label is NULL");
 
         if (m_RunningTimeLabel)
@@ -571,6 +572,24 @@
             M_THROW_EXCEPTION("Game object is NULL");
     }
     M_CatchSilent
+}
+//------------------------------------------------------------------------------
+- (void)OnAppEnterBackground
+{
+    if (m_pWelcome)
+        [m_pWelcome OnAppEnterBackground];
+
+    if (m_pGame)
+        [m_pGame OnAppEnterBackground];
+}
+//------------------------------------------------------------------------------
+- (void)OnAppEnterForeground
+{
+    if (m_pWelcome)
+        [m_pWelcome OnAppEnterForeground];
+
+    if (m_pGame)
+        [m_pGame OnAppEnterForeground];
 }
 //------------------------------------------------------------------------------
 - (void)alertView :(UIAlertView*)pAlertView didDismissWithButtonIndex:(NSInteger)buttonIndex

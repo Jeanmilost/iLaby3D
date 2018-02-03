@@ -179,4 +179,14 @@
 */
 - (void)SetOnExitDelegate :(id)pObject :(SEL)pDelegate;
 
+/**
+* Called when application enters background
+*/
+- (void)OnAppEnterBackground;
+
+/**
+* Called when application enters foreground
+*/
+- (void)OnAppEnterForeground;
+
 @end

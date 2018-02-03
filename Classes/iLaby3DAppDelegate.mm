@@ -6,7 +6,6 @@
  *****************************************************************************/
 
 #import "iLaby3DAppDelegate.h"
-#import <iAd/iAd.h>
 #import "EAGLView.h"
 #import "IP_CatchMacros.h"
 
@@ -16,24 +15,42 @@
 @synthesize m_pWindow;
 @synthesize m_pGLView;
 //------------------------------------------------------------------------------
+- (void)dealloc
+{
+    #ifdef Show_Advertisements
+        if (m_pADView)
+        {
+            [m_pADView removeFromSuperview];
+            [m_pADView release];
+        }
+    #endif
+
+    if (m_pGLView)
+        [m_pGLView release];
+
+    if (m_pWindow)
+        [m_pWindow release];
+
+	[super dealloc];
+}
+//------------------------------------------------------------------------------
 - (void)applicationDidFinishLaunching :(UIApplication*)pApplication
 {
+    #ifdef Show_Advertisements
+        m_pADView = nil;
+    #endif
+
     if (m_pGLView)
     {
         #ifdef Show_Advertisements
             M_Try
             {
-                UIViewController* pADController = [[UIViewController alloc]init];
-                pADController.view.frame = CGRectMake(0, 423, 320, 455);
-
-                // from the official iAd programming guide
-                ADBannerView* pADView = [[ADBannerView alloc]initWithFrame:CGRectZero];
-
-                pADView.requiredContentSizeIdentifiers = [NSSet setWithObject:ADBannerContentSizeIdentifierPortrait];
-                pADView.currentContentSizeIdentifier   = ADBannerContentSizeIdentifierPortrait;
-
-                [pADController.view addSubview:pADView];
-                [m_pGLView addSubview:pADController.view];
+                m_pADView                                = [[ADBannerView alloc]initWithFrame:CGRectZero];
+                m_pADView.requiredContentSizeIdentifiers = [NSSet setWithObject:ADBannerContentSizeIdentifierPortrait];
+                m_pADView.currentContentSizeIdentifier   = ADBannerContentSizeIdentifierPortrait;
+                m_pADView.frame                          = CGRectMake(0, 425, 320, 475);
+                [m_pADView setDelegate:self];
+                [m_pWindow addSubview:m_pADView];
             }
             M_CatchSilent
         #endif
@@ -57,16 +74,48 @@
         m_pGLView.m_AnimationInterval = 1.0 / 60.0;
 }
 //------------------------------------------------------------------------------
-- (void)dealloc
+- (void)applicationDidEnterBackground :(UIApplication*)pApplication
 {
-    if (m_pWindow)
-        [m_pWindow release];
-
     if (m_pGLView)
-        [m_pGLView release];
-
-	[super dealloc];
+        [m_pGLView OnAppEnterBackground];
 }
+//------------------------------------------------------------------------------
+- (void)applicationWillEnterForeground :(UIApplication*)pApplication
+{
+    if (m_pGLView)
+        [m_pGLView OnAppEnterForeground];
+}
+//------------------------------------------------------------------------------
+#ifdef Show_Advertisements
+    - (void)bannerViewDidLoadAd :(ADBannerView*)banner
+    {
+        [UIView beginAnimations:@"runtimeAnimate" context:nil];
+
+        if (m_pADView)
+            [m_pADView setHidden:NO];
+
+        //[UIView commitAnimations];
+    }
+#endif
+//------------------------------------------------------------------------------
+#ifdef Show_Advertisements
+    - (void)bannerView :(ADBannerView*)banner didFailToReceiveAdWithError:(NSError*)error
+    {
+        [UIView beginAnimations:@"errorAnimate" context:nil];
+
+        if (m_pADView)
+            [m_pADView setHidden:YES];
+
+        //[UIView commitAnimations];
+    }
+#endif
+//------------------------------------------------------------------------------
+#ifdef Show_Advertisements
+    - (BOOL)bannerViewActionShouldBegin :(ADBannerView*)banner willLeaveApplication:(BOOL)willLeave
+    {
+        return TRUE;
+    }
+#endif
 //------------------------------------------------------------------------------
 @end
 //------------------------------------------------------------------------------

@@ -51,14 +51,6 @@
 		return false;
     }
 
-    /*
-    kAudioSessionCategory_AmbientSound               = 'ambi',
-    kAudioSessionCategory_SoloAmbientSound           = 'solo',
-    kAudioSessionCategory_MediaPlayback              = 'medi',
-    kAudioSessionCategory_RecordAudio                = 'reca',
-    kAudioSessionCategory_PlayAndRecord              = 'plar',
-    kAudioSessionCategory_AudioProcessing            = 'proc'
-    */
     UInt32 sessionCategory = kAudioSessionCategory_AmbientSound;
 
     AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof (sessionCategory), &sessionCategory);
